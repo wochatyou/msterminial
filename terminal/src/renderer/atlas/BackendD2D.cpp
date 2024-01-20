@@ -164,7 +164,7 @@ void BackendD2D::_drawBackground(const RenderingPayload& p) noexcept
     _renderTarget->SetPrimitiveBlend(D2D1_PRIMITIVE_BLEND_SOURCE_OVER);
 }
 
-void BackendD2D::_drawText(RenderingPayload& p)
+void BackendD2D::_drawText(RenderingPayload& p) /// 绘制Text的函数
 {
     til::CoordType dirtyTop = til::CoordTypeMax;
     til::CoordType dirtyBottom = til::CoordTypeMin;

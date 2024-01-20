@@ -78,7 +78,7 @@ namespace Microsoft::Console::Render::Atlas
     };
 
     template<typename T>
-    struct rect
+    struct rect /// 矩形的模板类
     {
         // These members aren't zero-initialized to make these trivial types,
         // and allow the compiler to quickly memset() allocations, etc.
@@ -91,26 +91,26 @@ namespace Microsoft::Console::Render::Atlas
 
         constexpr bool empty() const noexcept
         {
-            return left >= right || top >= bottom;
+            return left >= right || top >= bottom; /// 判断矩形为空
         }
 
         constexpr bool non_empty() const noexcept
         {
-            return left < right && top < bottom;
+            return left < right && top < bottom; /// 判断矩形不为空的逻辑
         }
     };
 
     template<typename T>
-    struct range
+    struct range /// 范围模板类
     {
-        T start;
-        T end;
+        T start; /// 开始点，包含
+        T end;   /// 终止点，不包含
 
         ATLAS_POD_OPS(range)
 
         constexpr bool empty() const noexcept
         {
-            return start >= end;
+            return start >= end; /// 如果起点大于等于终点，就为空
         }
 
         constexpr bool non_empty() const noexcept
@@ -555,7 +555,7 @@ namespace Microsoft::Console::Render::Atlas
         }
     };
 
-    struct IBackend
+    struct IBackend /// 纯虚对象
     {
         virtual ~IBackend() = default;
         virtual void ReleaseResources() noexcept = 0;
